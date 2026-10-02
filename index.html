@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wayanad 5 AM Club | Luxury Wellness Retreat</title>
+    <!-- Google Fonts for Luxury Aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #1A3626; /* Deep Forest Green */
+            --accent-color: #D4AF37; /* Luxury Gold */
+            --text-main: #333333;
+            --bg-light: #F9F9F7;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .login-btn {
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+            border: none;
+            padding: 10px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .login-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(26, 54, 38, 0.6), rgba(26, 54, 38, 0.6)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .faq-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .contact h2 { color: var(--accent-color); }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-float svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        /* Modal / Form Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 450px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .error-msg {
+            color: #d9534f;
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--accent-color);
+            padding: 14px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .success-state {
+            display: none;
+            text-align: center;
+        }
+
+        .success-state h3 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .hero h1 { font-size: 2.5rem; }
+            .contact-links { flex-direction: column; gap: 1rem; }
+            .modal-content { padding: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#" class="logo">Wayanad 5 AM Club</a>
+        <button class="login-btn" onclick="openModal()">Book / Login</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Awaken to Serenity</h1>
+        <p>A luxury retreat in the heart of Wayanad, designed to rejuvenate your mind, body, and soul before the world wakes up.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About The Club</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Welcome to the <strong>Wayanad 5 AM Club</strong>, an exclusive sanctuary nestled in the misty hills of Kerala. We believe the magic happens in the early hours.</p>
+                <p><strong>For Parents:</strong> Find the quiet peace you deserve. Reconnect with yourself while enjoying the tranquil environment, away from the hustle of daily life.</p>
+                <p><strong>For Couples:</strong> Experience profound romance with sunrise walks, private wellness sessions, and luxurious, secluded accommodations tailored for intimate getaways.</p>
+                <p><strong>For Seniors:</strong> Embrace holistic rejuvenation. Our gentle yoga programs, mindful meditation sessions, and pristine, crisp morning air are perfect for health and longevity.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=800&q=80" alt="Wayanad Morning View">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" style="background-color: var(--white);">
+        <h2 class="section-title">The 5 AM Experience</h2>
+        <div class="gallery-grid">
+            <img src="https://images.unsplash.com/photo-1510844355160-2fb5d46a889d?auto=format&fit=crop&w=600&q=80" alt="Yoga Session">
+            <img src="https://images.unsplash.com/photo-1596324121712-5bbc14482174?auto=format&fit=crop&w=600&q=80" alt="Luxury Room">
+            <img src="https://images.unsplash.com/photo-1470071131384-001b85755b36?auto=format&fit=crop&w=600&q=80" alt="Wayanad Nature">
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container" style="max-width: 800px; margin: 0 auto;">
+            <div class="faq-item">
+                <h3>1. What activities are included in the 5 AM schedule?</h3>
+                <p>Our morning routine includes guided meditation, breathwork, gentle yoga facing the sunrise, and a customized nature walk through the tea estates.</p>
+            </div>
+            <div class="faq-item">
+                <h3>2. Is the environment suitable for senior citizens?</h3>
+                <p>Absolutely. We have specifically designed accessible pathways, and our wellness experts tailor activities to ensure they are safe, gentle, and highly beneficial for seniors.</p>
+            </div>
+            <div class="faq-item">
+                <h3>3. Can couples book private wellness sessions?</h3>
+                <p>Yes, couples can reserve private dawn-yoga sessions and secluded breakfast experiences to ensure a completely uninterrupted romantic retreat.</p>
+            </div>
+            <div class="faq-item">
+                <h3>4. Do you provide healthy dietary options?</h3>
+                <p>Yes, our luxury kitchen prepares farm-to-table, organic meals crafted to support holistic health, with custom menus available for specific dietary requirements.</p>
+            </div>
+            <div class="faq-item">
+                <h3>5. How do I secure a reservation?</h3>
+                <p>Simply click the "Book / Login" button at the top of the page, fill out your desired date and phone number, and our concierge will contact you to finalize details.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p>Ready to join the club? Reach out to our concierge directly.</p>
+        <div class="contact-links">
+            <a href="tel:7204248002">📞 +91 7204248002</a>
+            <a href="mailto:yeshwanthgowdav01@gmail.com">✉️ yeshwanthgowdav01@gmail.com</a>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/917204248002" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 32 32">
+            <path d="M16.002 0c-8.837 0-16 7.163-16 16 0 2.802.73 5.435 2.016 7.734l-2.016 7.266 7.551-1.957c2.227 1.139 4.757 1.787 7.449 1.787 8.837 0 16-7.163 16-16s-7.163-16-16-16zm8.172 23.018c-.346.975-1.996 1.768-2.734 1.838-.738.07-1.748.24-5.02-1.115-3.95-1.636-6.494-5.659-6.691-5.92-.197-.26-1.597-2.127-1.597-4.053 0-1.927 1.006-2.873 1.36-3.242.353-.37.766-.463 1.022-.463.256 0 .512.002.729.011.233.01.545-.09.854.656.327.785 1.115 2.716 1.213 2.912.098.196.164.425.033.687-.131.262-.197.425-.393.655-.196.229-.413.507-.589.687-.196.196-.407.41-.177.803.23.393 1.022 1.684 2.188 2.724 1.506 1.344 2.775 1.761 3.168 1.957.393.196.622.164.852-.098.23-.262.983-1.146 1.245-1.539.262-.393.524-.327.885-.196.36.131 2.293 1.08 2.686 1.277.393.196.655.295.753.459.098.164.098.949-.248 1.924z"/>
+        </svg>
+    </a>
+
+    <!-- Login / Booking Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <div id="formContainer">
+                <h2>Member Access / Booking</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="Enter your 10-digit number" required>
+                        <div class="error-msg" id="phoneError">Please enter exactly 10 digits.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Select Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit Request</button>
+                </form>
+            </div>
+
+            <!-- Success State (Hidden by default) -->
+            <div class="success-state" id="successState">
+                <h3>Request Confirmed!</h3>
+                <p>Thank you. Your details have been verified, and our team will reach out to you shortly.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- --- JAVASCRIPT --- -->
+    <script>
+        const modal = document.getElementById('loginModal');
+        const dateInput = document.getElementById('date');
+        const form = document.getElementById('bookingForm');
+        const formContainer = document.getElementById('formContainer');
+        const successState = document.getElementById('successState');
+        const phoneInput = document.getElementById('phone');
+        const phoneError = document.getElementById('phoneError');
+
+        // Disable past dates in date picker
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.setAttribute('min', today);
+
+        // Open Modal
+        function openModal() {
+            modal.style.display = 'flex';
+            // Reset state upon opening
+            formContainer.style.display = 'block';
+            successState.style.display = 'none';
+            form.reset();
+            phoneError.style.display = 'none';
+        }
+
+        // Close Modal
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        // Close modal if clicked outside content
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Form validation and submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page reload
+            
+            const phoneValue = phoneInput.value.trim();
+            const phoneRegex = /^\d{10}$/; // Exactly 10 digits
+
+            if (!phoneRegex.test(phoneValue)) {
+                // Show error if not exactly 10 digits
+                phoneError.style.display = 'block';
+                phoneInput.style.borderColor = '#d9534f';
+            } else {
+                // Success
+                phoneError.style.display = 'none';
+                phoneInput.style.borderColor = '#ddd';
+                
+                // Replace form with confirmation message
+                formContainer.style.display = 'none';
+                successState.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
